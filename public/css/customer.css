@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+@import url('http://fonts.googleapis.com/css?family=Berkshire+Swash');
+@import url('http://fonts.googleapis.com/css?family=Lobster+Two');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+.logo {
+    font: 2.5em 'Berkshire Swash', Helvetica, sans-serif;
+    color: #2b2b2b;
+    /* text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0, 0, 0, 0.15); */
+}
+
+.bg-dark {
+    background-color: #22222252 !important;
+}
+
+nav {
+    background-color: #222;
+    height: 60px;
+    padding: 0 120px !important;
+}
+
+nav a:not(.btn-cta):not(.logo):hover {
+    color: #F64C56 !important;
+}
+
+.navbar-brand>div {
+    /* background-image: url('../img/logo-full.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 110px; */
+}
+
+.navbar-brand-scroll {
+    /* background-image: url('../img/logo-short.png') !important;
+    position: relative !important;
+    width: 50px !important;
+    height: 50px !important; */
+}
+
+.navbar-nav li {
+    text-align: center;
+    width: 120px;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.btn-cta,
+#book-now-modal .modal-header {
+    background-color: #F64C56;
+}
+
+.scroll-nav {
+    /* background-color: #00000070; */
+    /* transition: background-color 200ms linear; */
+}
+
+/* Home Page */
+#home {
+    background: url('../img/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Rooms */
+#rooms {
+    background-color: #f3efe7;
+}
+
+.img-room {
+    width: 100%;
+}
+
+.room-gallery:hover {
+
+}
+
+.hide {
+    display: none;
+}
+
+/* Contact */
+#contact {
+    background-color: #534c4c;
+}
+
+.contact-icon {
+    font-size: 2em;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+/* Book */
+#book {
+    background-color: #f3efe7;
+}
+
+.btn-book {
+    color: #F64C56;
+    border: 1px solid #F64C56;
+    margin: 0 !important;
+}
+
+.btn-book:hover {
+    color: #ffffff;
+    background-color: #F64C56;
+}
+
+.container-middle-contents {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+#book-now-modal .modal-body {
+    padding: 1rem 2rem !important;
+}
+
+#book-now-modal .alert {
+    display: none;
+}
+
+#book-now-modal .form-group {
+    margin-bottom: 0;
+}
+
+/* Select Room */
+#select-room-container {
+    background-color: #f3efe7;
+    margin-top: 60px;
+}
+
+.room-list-details div {
+    position: absolute;
+    bottom: 16px;
+    width: 92%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: table;
+}
+
+.room-list-details div * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.room-list-details a {
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000;
+    font-weight: bold;
+    float: right;
+}
+
+.room-list-details a:hover {
+    text-decoration: none;
+    border: 1px solid #F64C56;
+    background-color: #F64C56;
+}
+
+/* Footer */
+footer {
+    background-color: #F64C56 !important;
+}
+
+body#book footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.footer-social-icon {
+    font-size: 2em;
+}
+
+/* Datepicker override */
+.vdatetime {
+    width: 100%;
+}
+
+.vdatetime-popup__header {
+    background-color: #343a40 !important;
+}
+
+.vdatetime-calendar__month__day--selected>span>span,
+.vdatetime-calendar__month__day--selected:hover>span>span {
+    color: #fff;
+    background-color: #3490dc !important;
+}
+
+.vdatetime-popup__actions__button,
+.vdatetime-time-picker__item--selected {
+    color: #3490dc !important;
+}
+
+/**
+ * Media Queries
+**/
+@media only screen and (max-width: 768px) {
+    nav {
+        padding: 0 16px !important;
+    }
+
+    .navbar-nav li {
+        width: 100%;
+    }
+
+    #first {
+        order: 2;
+    }
+
+    #second {
+        order: 1;
+    }
+
+    .room-list-details {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .modal-dialog {
+        max-width: 850px;
+    }
+}
