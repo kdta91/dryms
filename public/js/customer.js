@@ -1,19 +1,4 @@
 $(function () {
-    var nav = $('nav.fixed-top');
-
-    function scrollNavbar() {
-        nav.toggleClass('scroll-nav', $(this).scrollTop() > nav.height());
-        // $('.navbar-brand>div').toggleClass('navbar-brand-scroll', $(this).scrollTop() > nav.height());
-    }
-
-    if (window.scrollY > nav.height()) {
-        scrollNavbar();
-    }
-
-    $(document).scroll(function () {
-        scrollNavbar();
-    });
-
     /**
      * Home Slider
      */
@@ -21,12 +6,6 @@ $(function () {
     var banner = '';
     for (var i = 1; i <= 16; i++) {
         var image = homeBannerImagePath + 'home-' + i + '.jpg';
-
-        // banner += `
-        //     <div>
-        //         <img src="${image}" alt="${image}">
-        //     </div>
-        // `;
         banner += `
             <div style="background-image: url(${image})"></div>
         `;
@@ -37,16 +16,16 @@ $(function () {
      * Condo Units Slider
      */
     var condoImagePath = '/img/units/condo/';
-    var condoImages = `<a href="${condoImagePath}condo-1.jpg" class="big room-thumb"><img src="${condoImagePath}condo-1.jpg" alt="" class="img-responsive img-room" title="Condo" /></a>`;
+    var condoImages = `<a href="${condoImagePath}condo-1.JPG" class="big room-thumb"><img src="${condoImagePath}condo-1.JPG" alt="" class="img-responsive img-room" title="Condo" /></a>`;
     for (var i = 1; i <= 6; i++) {
-        var image = condoImagePath + 'condo-' + i + '.jpg';
+        var image = condoImagePath + 'condo-' + i + '.JPG';
         // condoImages += `
         //     <div>
         //         <img src="${image}" alt="${image}">
         //     </div>
         // `;
         condoImages += `
-            <a href="${condoImagePath}condo-1.jpg" class="hide"><img src="${condoImagePath}condo-1.jpg" alt="" class="img-responsive img-room" title="Condo" /></a>
+            <a href="${image}" class="hide"><img src="${image}" alt="" class="img-responsive img-room" title="Condo" /></a>
         `;
     }
     $('#condo-units .room-images').prepend(condoImages);
@@ -164,29 +143,33 @@ $(window).on('load', function () {
      * Rooms Section Lightbox
      */
     if ($('#rooms').length) {
-        $('#condo-units .room-gallery a').simpleLightbox();
-        $('#hotel-units .room-gallery a').simpleLightbox();
+        $('#condo-units .room-gallery a').simpleLightbox({
+            captions: false,
+            close: false,
+            showCounter: false
+        });
+        $('#hotel-units .room-gallery a').simpleLightbox({
+            captions: false,
+            close: false,
+            showCounter: false
+        });
     }
 
     /**
      * Search Rooms Lightbox
      */
     if ($('#select-room-container .room-list').length) {
-        $('.room-images a').simpleLightbox();
+        $('.room-images a').simpleLightbox({
+            captions: false,
+            close: false,
+            showCounter: false
+        });
     }
 
     /**
      * Homepage Banner
      */
     if ($('#home').length) {
-        // $('#homeBanner').bxSlider({
-        //     auto: true,
-        //     autoHover: true,
-        //     pause: 3000,
-        //     pager: false,
-        //     controls: false
-        // });
-
         $("#homeBanner").skippr({
             transition: 'slide',
             speed: 1000,

@@ -70,6 +70,9 @@ class BookingController extends Controller
         $to_email = $data['email'];
         $from_email = env('SITE_EMAIL');
         $details = [
+            'email' => $data['email'],
+            'contact_number' => $data['contact_number'],
+            'address' => $data['address'],
             'date_in' => $date_in,
             'date_out' => $date_out,
             'room_type' => $room_type,
@@ -78,20 +81,36 @@ class BookingController extends Controller
             'total_payment' => $total_payment,
             'special_request' => $data['special_request'],
         ];
-        $this->sendToCustomer($to_name, $to_email, $from_email, $details);
+        $this->sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details);
+        $this->sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details);
 
-        return response()->json(['success' => 'Thank you for booking with us']);
+        request()->session()->flush();
+
+        // return response()->json(['success' => 'Thank you for booking with us']);
+        return redirect('/')->with('success', 'Thank you for booking with us. We have sent you an email containing your booking information. We look forward to hosting you.');
     }
 
-    private function sendToCustomer($to_name, $to_email, $from_email, $details)
+    private function sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details)
     {
         $data = [
             'name' => $to_name,
             'details' => $details
         ];
-        Mail::send('emails.confirmation', $data, function($message) use ($to_name, $to_email, $from_email) {
-            $message->to($to_email, $to_name)->subject('Laravel Test Mail');
-            $message->from($from_email,'Test Mail');
+        Mail::send('emails.customer.confirmation', $data, function($message) use ($to_name, $to_email, $from_email) {
+            $message->to($to_email, $to_name)->subject('Booking Confirmation');
+            $message->from($from_email, 'Dryms Listings');
+        });
+    }
+
+    private function sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details)
+    {
+        $data = [
+            'name' => $to_name,
+            'details' => $details
+        ];
+        Mail::send('emails.admin.confirmation', $data, function($message) use ($to_name, $to_email, $from_email) {
+            $message->to($from_email, $to_name)->subject('Booking Confirmation');
+            $message->from($from_email, 'Dryms Listings');
         });
     }
 

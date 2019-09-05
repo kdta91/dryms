@@ -77,17 +77,6 @@ nav a:not(.btn-cta):not(.logo):hover {
     height: 100vh;
 }
 
-#home .bx-wrapper {
-    /* width: 100%;
-    border: 0;
-    margin-bottom: 0; */
-}
-
-#home .bx-viewport {
-    /* max-height: 1000px;
-    height: 100% !important; */
-}
-
 #home .sy-controls li a:after {
     background-image: url(/slippry-1.4.0/images/arrows.svg) !important;
 }
@@ -102,16 +91,6 @@ nav a:not(.btn-cta):not(.logo):hover {
 
 .overlay {
     background-color: rgba(255, 255, 255, 0.8);
-}
-
-#rooms .bx-viewport {
-    /* max-height: 450px !important; */
-}
-
-#rooms .bx-wrapper {
-    /* width: 100%;
-    border: 2px solid #ffffff;
-    margin-bottom: 0; */
 }
 
 .img-room {
@@ -200,7 +179,6 @@ nav a:not(.btn-cta):not(.logo):hover {
 /* Select Room */
 #select-room-container {
     background-color: #f3efe7;
-    margin-top: 60px;
 }
 
 .room-list-details div {
@@ -234,7 +212,6 @@ nav a:not(.btn-cta):not(.logo):hover {
 /* Checkout room */
 #checkout-container {
     background-color: #f3efe7;
-    margin-top: 60px;
 }
 
 #checkout-container .checkout-heading h3 {
@@ -321,8 +298,21 @@ body#book footer {
         width: 100%;
     }
 
+    #btn-booknow {
+        width: 100%;
+    }
+
+    #home {
+        height: 30vh;
+    }
+
     #book-now-modal .form-group {
         padding: 4px 0;
+    }
+
+    #condo-units,
+    #hotel-units {
+        text-align: center;
     }
 
     .room-list {
@@ -335,6 +325,11 @@ body#book footer {
 
     .room-list-details div {
         width: 100%;
+    }
+
+    #btn-confirm-booking {
+        width: 100%;
+        float: none;
     }
 }
 

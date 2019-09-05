@@ -21,7 +21,7 @@
                 <i class="fas fa-envelope contact-icon"></i>
                 <h5 class="text-uppercase pt-4">Email</h5>
 
-                <p><a href="#" class="text-white">info@drymslistings.com</a></p>
+                <p><a href="mailto:info@drymslistings.com" class="text-white">info@drymslistings.com</a></p>
             </div>
         </div>
     </div>

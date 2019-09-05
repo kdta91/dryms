@@ -53,10 +53,13 @@
                     <h4 class="pb-2">
                         Hotel Rooms <br>
                         <small>
-                            Dryms Hotel <br>
-                            Located at Sta. Rosa Cor. Perdices Street
+                            Dryms Hotel
                         </small>
                     </h4>
+
+                    <p>
+                        Located at Sta. Rosa Cor. Perdices Street
+                    </p>
 
                     <p>
                         Airconditioned Rooms <br>

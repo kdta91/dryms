@@ -111,8 +111,7 @@
                     </div>
 
                     <div class="form-group justify-content-end">
-                        <button type="submit"
-                            class="btn text-white btn-cta m-1 text-uppercase font-weight-bold">{{ __('Confirm Booking') }}</button>
+                        <button type="submit" class="btn text-white btn-cta m-1 text-uppercase font-weight-bold" id="btn-confirm-booking">{{ __('Confirm Booking') }}</button>
 
                         <!-- <div id="paypal-button-container"></div> -->
 
