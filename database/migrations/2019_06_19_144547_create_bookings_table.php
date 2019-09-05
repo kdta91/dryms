@@ -25,8 +25,18 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('room_id')->nullable();
             $table->dateTime('date_in');
             $table->dateTime('date_out');
-            $table->string('remarks')->nullable();
-            $table->unsignedBigInteger('booking_status_id')->default('2');
+            $table->string('special_request')->nullable();
+            $table->unsignedBigInteger('booking_status_id')->default('1');
+            $table->string('extText1')->nullable();
+            $table->string('extText2')->nullable();
+            $table->string('extText3')->nullable();
+            $table->string('extNo1')->nullable();
+            $table->string('extNo2')->nullable();
+            $table->string('extNo3')->nullable();
+            $table->dateTime('extDate1')->nullable();
+            $table->dateTime('extDate2')->nullable();
+            $table->dateTime('extDate3')->nullable();
+            $table->longText('memo')->nullable();
             $table->timestamps();
 
             $table->foreign('room_id')->references('id')->on('rooms');

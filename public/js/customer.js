@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var nav = $('nav.fixed-top');
 
     function scrollNavbar() {
@@ -15,14 +15,139 @@ $(function() {
     });
 
     /**
-     * Rooms Section Lightbox
+     * Home Slider
      */
-    if ($('#rooms').length) {
-        var single_room = $('#single-room .room-gallery a').simpleLightbox();
-        var double_room = $('#double-room .room-gallery a').simpleLightbox();
-        var double_deluxe_room = $('#double-deluxe-room .room-gallery a').simpleLightbox();
-    }
+    var homeBannerImagePath = '/img/home-banner/';
+    var banner = '';
+    for (var i = 1; i <= 16; i++) {
+        var image = homeBannerImagePath + 'home-' + i + '.jpg';
 
+        // banner += `
+        //     <div>
+        //         <img src="${image}" alt="${image}">
+        //     </div>
+        // `;
+        banner += `
+            <div style="background-image: url(${image})"></div>
+        `;
+    }
+    $('#homeBanner').append(banner);
+
+    /**
+     * Condo Units Slider
+     */
+    var condoImagePath = '/img/units/condo/';
+    var condoImages = `<a href="${condoImagePath}condo-1.jpg" class="big room-thumb"><img src="${condoImagePath}condo-1.jpg" alt="" class="img-responsive img-room" title="Condo" /></a>`;
+    for (var i = 1; i <= 6; i++) {
+        var image = condoImagePath + 'condo-' + i + '.jpg';
+        // condoImages += `
+        //     <div>
+        //         <img src="${image}" alt="${image}">
+        //     </div>
+        // `;
+        condoImages += `
+            <a href="${condoImagePath}condo-1.jpg" class="hide"><img src="${condoImagePath}condo-1.jpg" alt="" class="img-responsive img-room" title="Condo" /></a>
+        `;
+    }
+    $('#condo-units .room-images').prepend(condoImages);
+    $('#select-room-container .room-images').prepend(condoImages);
+
+    /**
+     * Hotel Units Slider
+     */
+    // var hotelImagePath = '/img/units/hotel/';
+    // var hotelImages = '';
+    // for (var i = 1; i <= 1; i++) {
+    //     var image = hotelImagePath + 'hotel-' + i + '.jpg';
+    //     hotelImages += `
+    //         <div>
+    //             <img src="${image}" alt="${image}">
+    //         </div>
+    //     `;
+    // }
+    // $('#hotel-units .room-images').prepend(hotelImages);
+    // $('#select-room-container .room-images').prepend(hotelImages);
+
+    /**
+     * Book Now
+     */
+    $('#btn-booknow').on('click', function (e) {
+        e.preventDefault();
+
+        let booking_date = $('#booking_date').val();
+        let adult = $('#adult').val();
+        let children = $('#children').val();
+
+        if (booking_date && adult && children) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: '/search',
+                type: 'POST',
+                data: {
+                    booking_date: booking_date,
+                    adult: adult,
+                    children: children
+                },
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    if (res.success === true) {
+                        location.href = '/search/rooms';
+                    }
+                },
+                error: function (res) {
+                    console.log(res);
+                    console.log(res.status);
+                }
+            });
+        } else {
+            $('.invalid-feedback').css('display', 'block');
+            $('.booking-form-error').html('Please select your dates');
+        }
+    });
+
+    $('.btn-book-room').on('click', function (e) {
+        e.preventDefault();
+
+        let room_type_id = $(this).data('room-type-id');
+        let room_type = $(this).data('room-type');
+        let room_price = $(this).data('room-price');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: '/search/rooms/book',
+            type: 'POST',
+            data: {
+                room_type_id: room_type_id,
+                room_type: room_type,
+                room_price: room_price
+            },
+            success: function (res) {
+                console.log(res);
+                if (res.success === true) {
+                    location.href = '/search/checkout';
+                }
+            },
+            error: function (res) {
+                console.log(res);
+                console.log(res.status);
+            }
+        });
+    });
+});
+
+
+$(window).on('load', function () {
     /**
      * Booking Datepicker
      */
@@ -36,105 +161,43 @@ $(function() {
     }
 
     /**
-     * Book Now
+     * Rooms Section Lightbox
      */
-    $('#btn-booknow').on('click', function(e) {
-        e.preventDefault();
+    if ($('#rooms').length) {
+        $('#condo-units .room-gallery a').simpleLightbox();
+        $('#hotel-units .room-gallery a').simpleLightbox();
+    }
 
-        let booking_date = $('#booking_date').val();
-        let adult = $('#adult').val();
-        let children = $('#children').val();
+    /**
+     * Search Rooms Lightbox
+     */
+    if ($('#select-room-container .room-list').length) {
+        $('.room-images a').simpleLightbox();
+    }
 
-        if (booking_date && adult && children) {
-            // location.href = `/book/${booking_date}/${adult}/${children}`;
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                url: '/book',
-                type: 'POST',
-                data: {
-                    booking_date: booking_date,
-                    adult: adult,
-                    children: children
-                },
-                success: function (data) {
-                    console.log(data);
-
-                },
-                error: function (data) {
-                    console.log(data);
-                    console.log(data.status);
-                    if (data.status === 200) {
-                        location.href = '/book/rooms';
-                    }
-                }
-            });
-        } else {
-            $('.invalid-feedback').css('display', 'block');
-            $('.booking-form-error').html('Please select your dates');
-        }
-
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
+    /**
+     * Homepage Banner
+     */
+    if ($('#home').length) {
+        // $('#homeBanner').bxSlider({
+        //     auto: true,
+        //     autoHover: true,
+        //     pause: 3000,
+        //     pager: false,
+        //     controls: false
         // });
 
-        // // var first_name = $('#first_name').val();
-        // // var last_name = $('#last_name').val();
-        // // var contact_number = $('#contact_number').val();
-        // // var address = $('#address').val();
-        // var booking_date = $('#booking_date').val();
-        // var adult = $('#adult').val();
-        // var children = $('#children').val();
-        // // var remarks = $('#remarks').val();
-
-        // console.log(booking_date);
-        // console.log(adult);
-        // console.log(children);
-
-        // $.ajax({
-        //     url: `/book/${booking_date}/${adult}/${children}`,
-        //     type: 'GET',
-        //     data: {
-        //         // first_name: first_name,
-        //         // last_name: last_name,
-        //         // contact_number: contact_number,
-        //         // address: address,
-        //         booking_date: booking_date,
-        //         adult: adult,
-        //         children: children,
-        //         // remarks: remarks
-        //     },
-        //     success: function (data) {
-        //         console.log(data);
-        //         $("#book-now-modal form")[0].reset();
-        //         $('#book-now-modal .alert').show().html(data.success);
-        //     },
-        //     error: function (data) {
-        //         console.log(data);
-        //         console.log(data.status);
-        //         if (data.status === 422) {
-        //             var errors = $.parseJSON(data.responseText);
-        //             $.each(errors, function (key, value) {
-        //                 // console.log(key+ " " +value);
-        //                 // $('#response').addClass("alert alert-danger");
-
-        //                 if ($.isPlainObject(value)) {
-        //                     $.each(value, function (key, value) {
-        //                         console.log(key + " " + value);
-        //                         $('.invalid-' + key).show().html('<strong>' + value + '</strong>');
-        //                     });
-        //                 } else {
-        //                     console.log(value);
-        //                 }
-        //             });
-        //         }
-        //     }
-        // });
-    });
+        $("#homeBanner").skippr({
+            transition: 'slide',
+            speed: 1000,
+            easing: 'easeOutQuart',
+            navType: 'block',
+            childrenElementType: 'div',
+            arrows: true,
+            autoPlay: true,
+            autoPlayDuration: 3000,
+            keyboardOnAlways: true,
+            hidePrevious: false
+        });
+    }
 });

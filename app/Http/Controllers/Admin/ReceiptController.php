@@ -68,7 +68,7 @@ class ReceiptController extends Controller
             'booking_date' => 'required',
             // 'date_in' => 'required|date',
             // 'date_out' => 'required|date',
-            'remarks' => 'nullable'
+            'special_request' => 'nullable'
         ]);
 
         $booking_date = explode(' - ', $data['booking_date']);
@@ -81,7 +81,7 @@ class ReceiptController extends Controller
             'room_id' => $data['room_id'],
             'date_in' => Carbon::parse($booking_date[0]),
             'date_out' => Carbon::parse($booking_date[1]),
-            'remarks' => $data['remarks'],
+            'special_request' => $data['special_request'],
             'booking_status_id' => (!empty($data['room_id'])) ? 2 : 1
         ]);
 
@@ -111,7 +111,7 @@ class ReceiptController extends Controller
             'booking_date' => 'required',
             // 'date_in' => 'required|date',
             // 'date_out' => 'required|date',
-            'remarks' => 'nullable'
+            'special_request' => 'nullable'
         ]);
 
         $booking_date = explode(' - ', $data['booking_date']);
@@ -124,7 +124,7 @@ class ReceiptController extends Controller
             'room_id' => $data['room_id'],
             'date_in' => Carbon::parse($booking_date[0]),
             'date_out' => Carbon::parse($booking_date[1]),
-            'remarks' => $data['remarks'],
+            'special_request' => $data['special_request'],
             'booking_status_id' => (!empty($data['room_id'])) ? 2 : 1
         ]);
 

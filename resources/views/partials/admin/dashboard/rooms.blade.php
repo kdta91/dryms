@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{ $room->number }}</td>
                     <td>{{ $room->roomtype->type }}</td>
-                    <td>&#8369; {{ $room->price }}</td>
+                    <td>&#8369; {{ $room->roomtype->price }}</td>
                 </tr>
                 @endforeach
             </tbody>

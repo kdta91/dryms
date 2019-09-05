@@ -9,7 +9,27 @@ class Booking extends Model
     protected $guarded = [];
 
     protected $fillable = [
-        'first_name', 'last_name', 'contact_number', 'email', 'address', 'adult', 'children', 'room_id', 'date_in', 'date_out'
+        'first_name',
+        'last_name',
+        'contact_number',
+        'email',
+        'address',
+        'adult',
+        'children',
+        'room_id',
+        'date_in',
+        'date_out',
+        'special_request',
+        'extText1',
+        'extText2',
+        'extText3',
+        'extNo1',
+        'extNo2',
+        'extNo3',
+        'extDate1',
+        'extDate2',
+        'extDate3',
+        'memo'
     ];
 
     protected $dates = [

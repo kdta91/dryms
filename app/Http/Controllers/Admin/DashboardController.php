@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index(Booking $booking, Room $room, Purchase $purchase)
     {
         $bookings = $booking->orderBy('date_in', 'asc')->limit(5)->get();
-        $rooms = $room->orderBy('roomtype_id', 'asc')->limit(5)->get();
+        $rooms = $room->with('roomtype')->orderBy('roomtype_id', 'asc')->limit(5)->get();
         $purchases = $purchase->orderBy('date', 'asc')->limit(5)->get();
         $count = [
             'bookings' => $booking->count(),

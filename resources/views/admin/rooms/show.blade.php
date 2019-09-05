@@ -27,7 +27,7 @@
             <strong>Price</strong>
         </div>
         <div class="col-md-4">
-            &#8369; {{ $room->price }}
+            &#8369; {{ $room->roomtype->price }}
         </div>
     </div>
 

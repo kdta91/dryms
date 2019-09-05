@@ -124,13 +124,13 @@
             </div> -->
 
             <div class="form-group row col-md-6">
-                <label for="remarks">{{ __('Remarks') }}</label>
+                <label for="special_request">{{ __('Special Request') }}</label>
 
-                <!-- <input id="remark s" type="text" class="form-control @error('remarks') is-invalid @enderror" name="remarks" value="{{ old('remarks') ?? $booking->remarks }}" autocomplete="remarks" autofocus> -->
-                <textarea name="remarks" class="form-control @error('remarks') is-invalid @enderror" id="remarks"
-                    cols="30" rows="2" autofocus>{{ old('remarks') ?? $booking->remarks }}</textarea>
+                <!-- <input id="remark s" type="text" class="form-control @error('special_request') is-invalid @enderror" name="special_request" value="{{ old('special_request') ?? $booking->special_request }}" autocomplete="special_request" autofocus> -->
+                <textarea name="special_request" class="form-control @error('special_request') is-invalid @enderror" id="special_request"
+                    cols="30" rows="2" autofocus>{{ old('special_request') ?? $booking->special_request }}</textarea>
 
-                @error('remarks')
+                @error('special_request')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

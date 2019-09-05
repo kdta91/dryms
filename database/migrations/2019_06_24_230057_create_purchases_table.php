@@ -20,6 +20,16 @@ class CreatePurchasesTable extends Migration
             $table->string('description');
             $table->string('price');
             $table->dateTime('date');
+            $table->string('extText1')->nullable();
+            $table->string('extText2')->nullable();
+            $table->string('extText3')->nullable();
+            $table->string('extNo1')->nullable();
+            $table->string('extNo2')->nullable();
+            $table->string('extNo3')->nullable();
+            $table->dateTime('extDate1')->nullable();
+            $table->dateTime('extDate2')->nullable();
+            $table->dateTime('extDate3')->nullable();
+            $table->longText('memo')->nullable();
             $table->timestamps();
 
             $table->foreign('booking_id')->references('id')->on('bookings');

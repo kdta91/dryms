@@ -9,7 +9,19 @@ class Room extends Model
     protected $guarded = [];
 
     protected $fillable = [
-        'room_typeid', 'number', 'price', 'description', 'image'
+        'roomtype_id',
+        'number',
+        'price',
+        'extText1',
+        'extText2',
+        'extText3',
+        'extNo1',
+        'extNo2',
+        'extNo3',
+        'extDate1',
+        'extDate2',
+        'extDate3',
+        'memo'
     ];
 
     public function bookings()

@@ -9,22 +9,19 @@
                 <i class="fas fa-home contact-icon"></i>
                 <h5 class="text-uppercase pt-4">Address</h5>
 
-                <p>Dumaguete City, 6200</p>
-                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet.</p>
+                <p>Sta. Rosa Cor. Perdices St., Dumaguete City, 6200</p>
             </div>
             <div class="col-md-2 text-center text-white p3">
                 <i class="fas fa-phone contact-icon"></i>
                 <h5 class="text-uppercase pt-4">Phone</h5>
 
-                <p>+639000000000</p>
-                <p>Curabitur aliquet quam id dui posuere blandit.</p>
+                <p>(+63) 9178402565</p>
             </div>
             <div class="col-md-2 text-center text-white p3">
                 <i class="fas fa-envelope contact-icon"></i>
                 <h5 class="text-uppercase pt-4">Email</h5>
 
-                <p><a href="#" class="text-white">master@master.com</a></p>
-                <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>
+                <p><a href="#" class="text-white">info@drymslistings.com</a></p>
             </div>
         </div>
     </div>
@@ -35,7 +32,7 @@
         </div>
 
         <div class="row text-center">
-            <iframe id="map" src="https://maps.google.com/maps?q=fitbox%20dumaguete&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe id="map" src="https://maps.google.com/maps?q=marina%20spatial&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
     </div>
 </div>

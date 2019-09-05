@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+@import url('https://www.fontify.me/wf/1281042cf7c8d84d46aaaeca8d405c1a');
+@import url('https://www.fontify.me/wf/7234d8253fa8406559dfd1ea8373aee7');
+
+body {
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: font134301;
+    font-size: 18px;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+input,
+textarea,
+select,
+button {
+    background-color: #fff0 !important;
+    border-radius: 0 !important;
+    height: calc(1.6em + 0.75rem + 8px) !important;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    padding: 0 !important;
+}
+
+.logo span:nth-child(1) {
+    color: #ffff00;
+}
+
+.logo span:nth-child(2) {
+    color: #249fe8;
+}
+
+.bg-dark {
+    background-color: #22222252 !important;
+}
+
+nav {
+    width: 680px;
+    position: absolute !important;
+    top: 20px;
+    left: 48px;
+    background-color: #232323;
+    height: 55px;
+}
+
+.navbar-nav li {
+    text-align: center;
+    width: 120px;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+nav .btn-cta  {
+    border: #F64C56 !important;
+    background-color: #F64C56 !important;
+    padding: 5px 15px;
+}
+
+nav .btn-cta:hover {
+    text-decoration: none;
+}
+
+#book-now-modal .modal-header {
+    border: #F64C56 !important;
+    background-color: #F64C56 !important;
+}
+
+.scroll-nav {
+    /* background-color: #00000070; */
+    /* transition: background-color 200ms linear; */
+}
+
+/* Home Page */
+#home {
+    background: url(../img/home-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#home .heading {
+    font-family: font92456;
+    position: absolute;
+    font-size: 2.5rem;
+    top: 100px;
+    left: 48px;
+}
+
+#home-slider-container {
+    width: 680px;
+    position: absolute;
+    top: 250px;
+    left: 48px;
+}
+
+#home-slider img {
+    max-width: 100%;
+}
+
+/* Rooms */
+#rooms {
+    /* background-color: #f3efe7; */
+    background: url(../img/home-secondary-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.img-room {
+    width: 100%;
+}
+
+.magnify-icon {
+    opacity: 0;
+    position: absolute;
+    color: #ffffff;
+    font-size: 1.5em;
+    top: 45%;
+    left: 48%;
+}
+
+.room-thumb img {
+    transition: .5s ease;
+    transition: transform .5s;
+}
+
+.room-images:hover .room-thumb img {
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.room-images:hover .magnify-icon {
+    opacity: 1
+}
+
+.room-images {
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+}
+
+/* Contact */
+#contact {
+    background-color: #534c4c;
+}
+
+.contact-icon {
+    font-size: 2em;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+/* Book */
+#book {
+    background-color: #f3efe7;
+}
+
+.btn-book {
+    color: #F64C56;
+    border: 1px solid #F64C56;
+    margin: 0 !important;
+}
+
+.btn-book:hover {
+    color: #ffffff;
+    background-color: #F64C56 !important;
+}
+
+.container-middle-contents {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+#book-now-modal .modal-body {
+    padding: 1rem 2rem !important;
+}
+
+#book-now-modal .alert {
+    display: none;
+}
+
+#book-now-modal .form-group {
+    margin-bottom: 0;
+}
+
+/* Select Room */
+#select-room-container {
+    background-color: #f3efe7;
+    margin-top: 60px;
+}
+
+.room-list-details div {
+    position: absolute;
+    bottom: 16px;
+    width: 92%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: table;
+}
+
+.room-list-details div * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.room-list-details a {
+    text-decoration: none;
+    color: #000000 !important;
+    border: 1px solid #000;
+    font-weight: bold !important;
+    float: right;
+}
+
+.room-list-details a:hover {
+    text-decoration: none;
+    border: 1px solid #F64C56;
+    background-color: #F64C56 !important;
+}
+
+/* Checkout room */
+#checkout-container {
+    background-color: #f3efe7;
+    margin-top: 60px;
+}
+
+#checkout-container .checkout-heading h3 {
+    border-bottom: 1px solid #ced4da;
+    line-height: 2em;
+}
+
+#checkout-container .checkout-heading h4 {
+    line-height: 2em;
+}
+
+#checkout-total .label {
+    width: 30%;
+    font-weight: bold;
+}
+
+#checkout-total .card-header {
+    background-color: #F64C56;
+    color: #ffffff;
+}
+
+#checkout-total .card-body,
+#checkout-total .card-footer {
+    background-color: #ffffff;
+}
+
+#checkout-total .text {
+    width: 65%;
+}
+
+#checkout-total .card-body div:first-child {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.clear-both {
+    clear: both;
+}
+
+/* Footer */
+footer {
+    background-color: #F64C56 !important;
+}
+
+body#book footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.footer-social-icon {
+    font-size: 2em;
+}
+
+/* Datepicker override */
+.vdatetime {
+    width: 100%;
+}
+
+.vdatetime-popup__header {
+    background-color: #343a40 !important;
+}
+
+.vdatetime-calendar__month__day--selected>span>span,
+.vdatetime-calendar__month__day--selected:hover>span>span {
+    color: #fff;
+    background-color: #3490dc !important;
+}
+
+.vdatetime-popup__actions__button,
+.vdatetime-time-picker__item--selected {
+    color: #3490dc !important;
+}
+
+/**
+ * Media Queries
+**/
+@media only screen and (max-width: 768px) {
+    nav {
+        padding: 0 16px !important;
+    }
+
+    .navbar-nav li {
+        width: 100%;
+    }
+
+    /* #first {
+        order: 2;
+    }
+
+    #second {
+        order: 1;
+    } */
+
+    .room-list {
+        padding: 1.2rem !important;
+    }
+
+    .room-list-details {
+        height: 350px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .modal-dialog {
+        max-width: 850px;
+    }
+}
+
+/* Simple Lightbox */
+.sl-overlay {
+    background: #000 !important;
+}
+
+.sl-wrapper .sl-counter {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.sl-wrapper .sl-close,
+.sl-prev,
+.sl-next {
+    color: #fff !important;
+}

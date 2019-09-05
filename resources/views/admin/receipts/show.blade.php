@@ -69,10 +69,10 @@
 
     <div class="row p-2">
         <div class="col-md-2 text-md-right">
-            <strong>Remarks</strong>
+            <strong>Special Request</strong>
         </div>
         <div class="col-md-4">
-            {{ $booking->remarks }}
+            {{ $booking->special_request }}
         </div>
     </div>
 

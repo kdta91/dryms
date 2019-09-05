@@ -119,12 +119,12 @@
             </div> -->
 
             <div class="form-group row col-md-6">
-                <label for="remarks">{{ __('Remarks') }}</label>
+                <label for="special_request">{{ __('Special Request') }}</label>
 
-                <textarea name="remarks" class="form-control @error('remarks') is-invalid @enderror" id="remarks"
-                    cols="30" rows="2" autofocus>{{ old('remarks') }}</textarea>
+                <textarea name="special_request" class="form-control @error('special_request') is-invalid @enderror" id="special_request"
+                    cols="30" rows="2" autofocus>{{ old('special_request') }}</textarea>
 
-                @error('remarks')
+                @error('special_request')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

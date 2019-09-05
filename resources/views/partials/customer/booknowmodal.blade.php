@@ -16,39 +16,6 @@
                 <div class="alert alert-info"></div>
 
                 <div class="modal-body">
-                    <!-- <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror"
-                                name="first_name" value="{{ old('first_name') }}" autocomplete="first_name" autofocus placeholder="First Name">
-
-                            <span class="invalid-feedback invalid-first_name" role="alert"></span>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror"
-                                name="last_name" value="{{ old('last_name') }}" autocomplete="last_name" autofocus placeholder="Last Name">
-
-                            <span class="invalid-feedback invalid-last_name" role="alert"></span>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input id="contact_number" type="text"
-                                class="form-control @error('contact_number') is-invalid @enderror" name="contact_number"
-                                value="{{ old('contact_number') }}" autocomplete="contact_number" autofocus placeholder="Contact Number">
-
-                            <span class="invalid-feedback invalid-contact_number" role="alert"></span>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"
-                                name="address" value="{{ old('address') }}" autocomplete="address" autofocus placeholder="Address">
-
-                            <span class="invalid-feedback invalid-address" role="alert"></span>
-                        </div>
-                    </div> -->
-
                     <div class="form-row">
                         <div class="col-md-12">
                             <span class="invalid-feedback booking-form-error pb-2" role="alert"></span>
@@ -58,8 +25,6 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <input id="booking_date" name="booking_date" type="text" class="form-control @error('booking_date') is-invalid @enderror" placeholder="Date in - Date out">
-
-                            <!-- <span class="invalid-feedback invalid-booking_date" role="alert"></span> -->
                         </div>
 
                         <div class="form-group col-md-3">
@@ -70,8 +35,6 @@
                                 <option value="4">4 Adults</option>
                                 <option value="5">5 Adults</option>
                             </select>
-
-                            <!-- <span class="invalid-feedback invalid-adult" role="alert"></span> -->
                         </div>
 
                         <div class="form-group col-md-3">
@@ -83,26 +46,12 @@
                                 <option value="4">4 Children</option>
                                 <option value="5">5 Children</option>
                             </select>
-
-                            <!-- <span class="invalid-feedback invalid-children" role="alert"></span> -->
                         </div>
 
                         <div class="form-group col-md-2 text-right">
-                            <button type="submit" id="btn-booknow" class="btn m-1 text-uppercase btn-book">{{ __('Confirm') }}</button>
+                            <button type="submit" id="btn-booknow" class="btn m-1 text-uppercase btn-book">{{ __('Search') }}</button>
                         </div>
                     </div>
-
-                    <!-- <div class="form-row float-right">
-                        <div class="form-group col-md-6">
-                            <textarea id="remarks" name="remarks" class="form-control @error('remarks') is-invalid @enderror" cols="30" rows="2" autofocus>{{ old('remarks') ?? 'Message' }}</textarea>
-
-                            <span class="invalid-feedback invalid-remarks" role="alert"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" id="btn-booknow" class="btn m-1 text-uppercase btn-book">{{ __('Confirm') }}</button>
-                        </div>
-                    </div> -->
                 </div>
             </form>
         </div>

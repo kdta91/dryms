@@ -77,7 +77,12 @@ Route::get('/admin/users/{user}/edit', 'Admin\UserController@edit');
  */
 // Route::post('/book', 'Customer\BookingController@store');
 // Route::get('/book/{duration}/{adults}/{children}', 'Customer\BookingController@index');
-Route::post('/book', 'Customer\BookingController@index');
 // Route::get('/book/{duration}/{adults}/{children}/{room}', 'Customer\BookingController@show');
-Route::get('/book/rooms', 'Customer\BookingController@showRooms');
 // Route::get('/book/create', 'Customer\BookingController@create');
+
+Route::post('/search', 'Customer\BookingController@search');
+Route::get('/search/rooms', 'Customer\BookingController@rooms');
+Route::post('/search/rooms/book', 'Customer\BookingController@book');
+Route::get('/search/checkout', 'Customer\BookingController@checkout');
+// Route::post('/search/checkout', 'Customer\BookingController@createPayment');
+Route::post('/search/checkout', 'Customer\BookingController@store');

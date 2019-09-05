@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
-@import url('http://fonts.googleapis.com/css?family=Berkshire+Swash');
-@import url('http://fonts.googleapis.com/css?family=Lobster+Two');
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -8,43 +6,51 @@ body {
 
 main {
     overflow-x: hidden;
+    margin-top: 60px;
+}
+
+input,
+textarea,
+select,
+button {
+    background-color: #fff0 !important;
+    border-radius: 0 !important;
+    height: calc(1.6em + 0.75rem + 8px) !important;
+}
+
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .logo {
-    font: 2.5em 'Berkshire Swash', Helvetica, sans-serif;
-    color: #2b2b2b;
-    /* text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0, 0, 0, 0.15); */
+    font-size: 2em;
+}
+
+.logo span:nth-child(1) {
+    color: #ffff00;
+}
+
+.logo span:nth-child(2) {
+    color: #249fe8;
 }
 
 .bg-dark {
     background-color: #22222252 !important;
 }
 
-nav {
+nav:not(.skippr-nav-item):not(.skippr-nav-container) {
     background-color: #222;
     height: 60px;
     padding: 0 120px !important;
 }
 
+.skippr-nav-container {
+    display: none;
+}
+
 nav a:not(.btn-cta):not(.logo):hover {
     color: #F64C56 !important;
-}
-
-.navbar-brand>div {
-    /* background-image: url('../img/logo-full.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    width: 200px;
-    height: 110px; */
-}
-
-.navbar-brand-scroll {
-    /* background-image: url('../img/logo-short.png') !important;
-    position: relative !important;
-    width: 50px !important;
-    height: 50px !important; */
 }
 
 .navbar-nav li {
@@ -57,35 +63,86 @@ nav a:not(.btn-cta):not(.logo):hover {
     padding: 0;
 }
 
-.btn-cta,
-#book-now-modal .modal-header {
-    background-color: #F64C56;
+.btn-book {
+    padding: 6px 20px !important;
 }
 
-.scroll-nav {
-    /* background-color: #00000070; */
-    /* transition: background-color 200ms linear; */
+#navbarHome .btn-cta,
+#book-now-modal .modal-header {
+    background-color: #F64C56 !important;
 }
 
 /* Home Page */
 #home {
-    background: url('../img/home.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
+}
+
+#home .bx-wrapper {
+    /* width: 100%;
+    border: 0;
+    margin-bottom: 0; */
+}
+
+#home .bx-viewport {
+    /* max-height: 1000px;
+    height: 100% !important; */
+}
+
+#home .sy-controls li a:after {
+    background-image: url(/slippry-1.4.0/images/arrows.svg) !important;
 }
 
 /* Rooms */
 #rooms {
-    background-color: #f3efe7;
+    background: url(../img/home-secondary-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -16px;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#rooms .bx-viewport {
+    /* max-height: 450px !important; */
+}
+
+#rooms .bx-wrapper {
+    /* width: 100%;
+    border: 2px solid #ffffff;
+    margin-bottom: 0; */
 }
 
 .img-room {
     width: 100%;
 }
 
-.room-gallery:hover {
+.magnify-icon {
+    opacity: 0;
+    position: absolute;
+    color: #ffffff;
+    font-size: 2em;
+    top: 48%;
+    left: 48%;
+}
 
+.room-thumb img {
+    transition: .5s ease;
+    transition: transform .5s;
+}
+
+.room-images:hover .room-thumb img {
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.room-images:hover .magnify-icon {
+    opacity: 1
+}
+
+.room-images {
+    overflow: hidden;
 }
 
 .hide {
@@ -119,12 +176,12 @@ nav a:not(.btn-cta):not(.logo):hover {
 
 .btn-book:hover {
     color: #ffffff;
-    background-color: #F64C56;
+    background-color: #F64C56 !important;
 }
 
 .container-middle-contents {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
 }
 
@@ -147,8 +204,6 @@ nav a:not(.btn-cta):not(.logo):hover {
 }
 
 .room-list-details div {
-    position: absolute;
-    bottom: 16px;
     width: 92%;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -160,18 +215,62 @@ nav a:not(.btn-cta):not(.logo):hover {
     vertical-align: middle;
 }
 
+.btn-cta:not(.nav-link),
 .room-list-details a {
     text-decoration: none;
-    color: #000000;
+    color: #000000 !important;
     border: 1px solid #000;
-    font-weight: bold;
+    font-weight: bold !important;
     float: right;
 }
 
+.btn-cta:not(.nav-link):hover,
 .room-list-details a:hover {
     text-decoration: none;
     border: 1px solid #F64C56;
+    background-color: #F64C56 !important;
+}
+
+/* Checkout room */
+#checkout-container {
+    background-color: #f3efe7;
+    margin-top: 60px;
+}
+
+#checkout-container .checkout-heading h3 {
+    border-bottom: 1px solid #ced4da;
+    line-height: 2em;
+}
+
+#checkout-container .checkout-heading h4 {
+    line-height: 2em;
+}
+
+#checkout-total .label {
+    width: 30%;
+    font-weight: bold;
+}
+
+#checkout-total .card-header {
     background-color: #F64C56;
+    color: #ffffff;
+}
+
+#checkout-total .card-body,
+#checkout-total .card-footer {
+    background-color: #ffffff;
+}
+
+#checkout-total .text {
+    width: 65%;
+}
+
+#checkout-total .card-body div:first-child {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.clear-both {
+    clear: both;
 }
 
 /* Footer */
@@ -214,7 +313,7 @@ body#book footer {
  * Media Queries
 **/
 @media only screen and (max-width: 768px) {
-    nav {
+    nav:not(.skippr-nav-item):not(.skippr-nav-container) {
         padding: 0 16px !important;
     }
 
@@ -222,16 +321,20 @@ body#book footer {
         width: 100%;
     }
 
-    #first {
-        order: 2;
+    #book-now-modal .form-group {
+        padding: 4px 0;
     }
 
-    #second {
-        order: 1;
+    .room-list {
+        padding: 1.2rem !important;
     }
 
     .room-list-details {
-        height: 250px;
+        height: 450px;
+    }
+
+    .room-list-details div {
+        width: 100%;
     }
 }
 
@@ -239,4 +342,20 @@ body#book footer {
     .modal-dialog {
         max-width: 850px;
     }
+}
+
+/* Simple Lightbox */
+.sl-overlay {
+    background: #000 !important;
+}
+
+.sl-wrapper .sl-counter {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.sl-wrapper .sl-close,
+.sl-prev,
+.sl-next {
+    color: #fff !important;
 }

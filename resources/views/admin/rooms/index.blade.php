@@ -64,7 +64,8 @@
                 {
                     'data': 'price',
                     'render': function (data, type, full) {
-                        return '&#8369;' + full['price'];
+                        // return '&#8369;' + full.roomtype.price;
+                        return '&#8369;' + full.price;
                     }
                 },
                 {

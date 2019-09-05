@@ -17,6 +17,10 @@ class CreateRoomTypesTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->integer('capacity');
+            $table->string('price');
+            $table->text('description')->nullable();
+            $table->string('location')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
