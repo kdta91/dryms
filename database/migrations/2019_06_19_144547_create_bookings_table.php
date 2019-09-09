@@ -23,6 +23,7 @@ class CreateBookingsTable extends Migration
             $table->integer('adult');
             $table->integer('children');
             $table->unsignedBigInteger('room_id')->nullable();
+            $table->unsignedBigInteger('room_type_id')->nullable();
             $table->dateTime('date_in');
             $table->dateTime('date_out');
             $table->string('special_request')->nullable();
@@ -40,6 +41,7 @@ class CreateBookingsTable extends Migration
             $table->timestamps();
 
             $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('room_type_id')->references('id')->on('room_types');
             $table->foreign('booking_status_id')->references('id')->on('booking_statuses');
         });
     }

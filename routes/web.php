@@ -81,8 +81,8 @@ Route::get('/admin/users/{user}/edit', 'Admin\UserController@edit');
 // Route::get('/book/create', 'Customer\BookingController@create');
 
 Route::post('/search', 'Customer\BookingController@search');
-Route::get('/search/rooms', 'Customer\BookingController@rooms')->middleware('bookingroutescheck');
+Route::get('/search/rooms', 'Customer\BookingController@rooms')->middleware('checkdate');
 Route::post('/search/rooms/book', 'Customer\BookingController@book');
-Route::get('/search/checkout', 'Customer\BookingController@checkout')->middleware('bookingroutescheck');
+Route::get('/search/checkout', 'Customer\BookingController@checkout')->middleware('checktotalpayment');
 // Route::post('/search/checkout', 'Customer\BookingController@createPayment');
 Route::post('/search/checkout', 'Customer\BookingController@store');

@@ -1,53 +1,5 @@
 $(function () {
     /**
-     * Home Slider
-     */
-    var homeBannerImagePath = '/img/home-banner/';
-    var banner = '';
-    for (var i = 1; i <= 16; i++) {
-        var image = homeBannerImagePath + 'home-' + i + '.jpg';
-        banner += `
-            <div style="background-image: url(${image})"></div>
-        `;
-    }
-    $('#homeBanner').append(banner);
-
-    /**
-     * Condo Units Slider
-     */
-    var condoImagePath = '/img/units/condo/';
-    var condoImages = `<a href="${condoImagePath}condo-1.JPG" class="big room-thumb"><img src="${condoImagePath}condo-1.JPG" alt="" class="img-responsive img-room" title="Condo" /></a>`;
-    for (var i = 1; i <= 6; i++) {
-        var image = condoImagePath + 'condo-' + i + '.JPG';
-        // condoImages += `
-        //     <div>
-        //         <img src="${image}" alt="${image}">
-        //     </div>
-        // `;
-        condoImages += `
-            <a href="${image}" class="hide"><img src="${image}" alt="" class="img-responsive img-room" title="Condo" /></a>
-        `;
-    }
-    $('#condo-units .room-images').prepend(condoImages);
-    $('#select-room-container .room-images').prepend(condoImages);
-
-    /**
-     * Hotel Units Slider
-     */
-    // var hotelImagePath = '/img/units/hotel/';
-    // var hotelImages = '';
-    // for (var i = 1; i <= 1; i++) {
-    //     var image = hotelImagePath + 'hotel-' + i + '.jpg';
-    //     hotelImages += `
-    //         <div>
-    //             <img src="${image}" alt="${image}">
-    //         </div>
-    //     `;
-    // }
-    // $('#hotel-units .room-images').prepend(hotelImages);
-    // $('#select-room-container .room-images').prepend(hotelImages);
-
-    /**
      * Book Now
      */
     $('#btn-booknow').on('click', function (e) {
@@ -127,6 +79,54 @@ $(function () {
 
 
 $(window).on('load', function () {
+    /**
+     * Home Slider
+     */
+    var homeBannerImagePath = '/img/home-banner/';
+    var banner = '';
+    for (var i = 1; i <= 5; i++) {
+        var image = homeBannerImagePath + 'home-' + i + '.jpg';
+        banner += `
+            <div style="background-image: url(${image})"></div>
+        `;
+    }
+    $('#homeBanner').append(banner);
+
+    /**
+     * Condo Units Slider
+     */
+    var condoImagePath = '/img/units/condo/';
+    var condoImages = `<a href="${condoImagePath}condo-1.JPG" class="big room-thumb"><img src="${condoImagePath}condo-1.JPG" alt="" class="img-responsive img-room" title="Condo" /></a>`;
+    for (var i = 1; i <= 5; i++) {
+        var image = condoImagePath + 'condo-' + i + '.JPG';
+        // condoImages += `
+        //     <div>
+        //         <img src="${image}" alt="${image}">
+        //     </div>
+        // `;
+        condoImages += `
+            <a href="${image}" class="hide"><img src="${image}" alt="" class="img-responsive img-room" title="Condo" /></a>
+        `;
+    }
+    $('#condo-units .room-images').prepend(condoImages);
+    $('#select-room-container .room-images').prepend(condoImages);
+
+    /**
+     * Hotel Units Slider
+     */
+        // var hotelImagePath = '/img/units/hotel/';
+        // var hotelImages = '';
+        // for (var i = 1; i <= 1; i++) {
+        //     var image = hotelImagePath + 'hotel-' + i + '.jpg';
+        //     hotelImages += `
+        //         <div>
+        //             <img src="${image}" alt="${image}">
+        //         </div>
+        //     `;
+        // }
+        // $('#hotel-units .room-images').prepend(hotelImages);
+        // $('#select-room-container .room-images').prepend(hotelImages);
+
     /**
      * Booking Datepicker
      */

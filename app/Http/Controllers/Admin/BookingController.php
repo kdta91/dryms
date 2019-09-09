@@ -94,14 +94,14 @@ class BookingController extends Controller
 
         $room = Room::where('id', $data['room_id'])->first();
 
-        BookingSchedule::create([
-            'booking_id' => $booking->id,
-            'room_id' => $booking->room_id,
-            'roomtype_id' => $room->roomtype_id,
-            'date_in' => $booking->date_in,
-            'date_out' => $booking->date_out,
-            'booking_status_id' => (!empty($data['room_id'])) ? 2 : 1
-        ]);
+        // BookingSchedule::create([
+        //     'booking_id' => $booking->id,
+        //     'room_id' => $booking->room_id,
+        //     'roomtype_id' => $room->roomtype_id,
+        //     'date_in' => $booking->date_in,
+        //     'date_out' => $booking->date_out,
+        //     'booking_status_id' => (!empty($data['room_id'])) ? 2 : 1
+        // ]);
 
         return redirect('/admin/bookings')->with('success', 'Booking successfully added');
     }

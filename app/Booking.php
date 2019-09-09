@@ -17,6 +17,7 @@ class Booking extends Model
         'adult',
         'children',
         'room_id',
+        'room_type_id',
         'date_in',
         'date_out',
         'special_request',

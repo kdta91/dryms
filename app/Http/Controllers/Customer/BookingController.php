@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Customer;
 
 use Carbon\Carbon;
 use App\Booking;
-use App\BookingSchedule;
 use App\Room;
 use App\RoomType;
 use Illuminate\Http\Request;
@@ -44,6 +43,7 @@ class BookingController extends Controller
         ]);
 
         $room_type = request()->session()->get('room_type');
+        $room_type_id = request()->session()->get('room_type_id');
         $date_in = request()->session()->get('date_in');
         $date_out = request()->session()->get('date_out');
         $nights = request()->session()->get('nights');
@@ -63,6 +63,7 @@ class BookingController extends Controller
             'children' => $children,
             'date_in' => Carbon::parse($date_in),
             'date_out' => Carbon::parse($date_out),
+            'room_type_id' => $room_type_id,
             'special_request' => $data['special_request']
         ]);
 
@@ -81,8 +82,8 @@ class BookingController extends Controller
             'total_payment' => $total_payment,
             'special_request' => $data['special_request'],
         ];
-        $this->sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details);
-        $this->sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details);
+        // $this->sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details);
+        // $this->sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details);
 
         request()->session()->flush();
 
@@ -160,9 +161,21 @@ class BookingController extends Controller
         // var_dump(request()->session()->get('nights'));
         // var_dump('Guests: ' . $guests);
 
-        // $schedules = BookingSchedule::whereNotBetween('date_in', [$date_in, $date_out])->whereNotBetween('date_out', [$date_in, $date_out])->get();
-        // $room_ids = array();
-        // $room_types = RoomType::where('capacity', '>=', $guests)->get();
+        // $schedules = Booking::whereNotBetween('date_in', [$date_in, $date_out])->whereNotBetween('date_out', [$date_in, $date_out])->get();
+        // var_dump($date_in);
+        // var_dump($date_out);
+        // $schedules = Booking::->get();
+        // $room_type_ids = array();
+
+        // var_dump($schedules);
+
+        // foreach ($schedules as $schedule) {
+        //     var_dump($schedule->room_type_id);
+        //     array_push($room_type_ids, $schedule->room_type_id);
+        // }
+
+        // var_dump($room_type_ids);
+
         $room_types = RoomType::where('capacity', '>=', $guests)->where('id', 4)->orWhere('id', 5)->get()->map(function ($room_type) use ($nights) {
             if ($nights >= 8 && $nights <=21) {
                 $room_type->price -= ($room_type->id === 4) ? 200 : 500;
