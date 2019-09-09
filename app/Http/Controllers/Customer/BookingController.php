@@ -154,29 +154,21 @@ class BookingController extends Controller
         $children = request()->session()->get('children');
         $guests = $adults + $children;
 
-        // var_dump($date_in);
-        // var_dump($date_out);
-        // var_dump($adults);
-        // var_dump($children);
-        // var_dump(request()->session()->get('nights'));
-        // var_dump('Guests: ' . $guests);
-
-        // $schedules = Booking::whereNotBetween('date_in', [$date_in, $date_out])->whereNotBetween('date_out', [$date_in, $date_out])->get();
-        // var_dump($date_in);
-        // var_dump($date_out);
-        // $schedules = Booking::->get();
-        // $room_type_ids = array();
+        $schedules = Booking::whereRaw("('{$date_in}' NOT BETWEEN date_in AND date_out) AND
+                                        ('{$date_out}' NOT BETWEEN date_in AND date_out)")->get();
+        var_dump($date_in->date);
+        var_dump($date_out->date);
+        $room_type_ids = array();
 
         // var_dump($schedules);
 
-        // foreach ($schedules as $schedule) {
-        //     var_dump($schedule->room_type_id);
-        //     array_push($room_type_ids, $schedule->room_type_id);
-        // }
+        foreach ($schedules as $schedule) {
+            array_push($room_type_ids, $schedule->room_type_id);
+        }
 
         // var_dump($room_type_ids);
 
-        $room_types = RoomType::where('capacity', '>=', $guests)->where('id', 4)->orWhere('id', 5)->get()->map(function ($room_type) use ($nights) {
+        $room_types = RoomType::where('capacity', '>=', $guests)->whereIn('id', $room_type_ids)->get()->map(function ($room_type) use ($nights) {
             if ($nights >= 8 && $nights <=21) {
                 $room_type->price -= ($room_type->id === 4) ? 200 : 500;
             } else if ($nights >= 22) {
@@ -185,23 +177,7 @@ class BookingController extends Controller
 
             return $room_type;
         });
-        // $room_type_ids = array();
 
-        // print("<pre>".print_r($room_types,true)."</pre>");
-
-        // foreach ($schedules as $schedule) {
-        //     array_push($room_ids, $schedule->room_id);
-        // }
-
-        // foreach ($room_types as $room_type) {
-        //     array_push($room_type_ids, $room_type->id);
-        // }
-
-        // $rooms = Room::with('roomtype')->whereNotIn('id', $room_ids)->whereIn('roomtype_id', $room_type_ids)->get();
-
-        // var_dump($rooms);
-
-        // return view('partials.customer.book', compact('rooms'));
         return view('partials.customer.book', compact('room_types'));
     }
 
