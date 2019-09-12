@@ -13,13 +13,15 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
-    <script src="{{ asset('DataTables/datatables.min.js') }}" defer></script>
+    <!-- <script src="{{ asset('DataTables/datatables.min.js') }}" defer></script> -->
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
     <script src="{{ asset('hotel-datepicker-3.6.8/dist/js/hotel-datepicker.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-    <link href="{{ asset('DataTables/datatables.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('DataTables/datatables.min.css') }}" rel="stylesheet"> -->
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ asset('hotel-datepicker-3.6.8/dist/css/hotel-datepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome-all.css') }}" rel="stylesheet">
 </head>

@@ -4,7 +4,13 @@
 <div class="container pb-5" id="select-room-container">
     <div class="row">
         <div class="col-md-12 text-center p-5">
+            <!-- If no available room -->
+            @if(count($room_types) === 0)
+            <h4>Sorry. All rooms are booked on those dates.</h4>
+            @else
             <h3>Available Units</h3>
+            @endif
+
         </div>
     </div>
 

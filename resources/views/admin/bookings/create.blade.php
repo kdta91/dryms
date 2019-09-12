@@ -115,9 +115,9 @@
                 <label for="room_id">{{ __('Room Number') }}</label>
 
                 <select id="room_id" name="room_id" class="form-control @error('room_id') is-invalid @enderror" value="{{ old('room_id') }}" autofocus>
-                    <option value="">Select Room</option>
+                    <option value="">Select Room No.</option>
                 @foreach ($rooms as $room)
-                    <option value="{{ $room->id }}">{{ $room->number }}</option>
+                    <option value="{{ $room->id }}">No. {{ $room->number . ' - ' . $room->roomtype->type }}</option>
                 @endforeach
                 </select>
 

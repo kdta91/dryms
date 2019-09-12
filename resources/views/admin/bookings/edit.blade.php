@@ -72,7 +72,7 @@
                 <select id="room_id" name="room_id" class="form-control @error('room_id') is-invalid @enderror" value="{{ old('room_id') }}" autofocus>
                     <option value="">Select Room</option>
                 @foreach ($rooms as $room)
-                    <option value="{{ $room->id }}" {{ ($room->id === $booking->room['id']) ? 'selected' : '' }}>{{ $room->number }}</option>
+                    <option value="{{ $room->id }}" {{ ($room->id === $booking->room['id']) ? 'selected' : '' }}>No. {{ $room->number . ' - ' . $room->roomtype->type }}</option>
                 @endforeach
                 </select>
 
@@ -124,7 +124,7 @@
             </div> -->
 
             <div class="form-group row col-md-6">
-                <label for="special_request">{{ __('special_request') }}</label>
+                <label for="special_request">{{ __('Special Request') }}</label>
 
                 <!-- <input id="remark s" type="text" class="form-control @error('special_request') is-invalid @enderror" name="special_request" value="{{ old('special_request') ?? $booking->special_request }}" autocomplete="special_request" autofocus> -->
                 <textarea name="special_request" class="form-control @error('special_request') is-invalid @enderror" id="special_request"

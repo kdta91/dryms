@@ -83,13 +83,6 @@ class DatabaseSeeder extends Seeder
                     </p>
 
                     <p>
-                        Sea View 9th Floor <br>
-                        2 Airconditioned Rooms and Kitchen <br>
-                        Hot and Cold Shower <br>
-                        3 to 5 persons
-                    </p>
-
-                    <p>
                         Sea View 8th Floor <br>
                         1 Airconditioned Room and Kitchen <br>
                         Hot and Cold Shower <br>
@@ -110,13 +103,6 @@ class DatabaseSeeder extends Seeder
                         2 Airconditioned Rooms and Kitchen <br>
                         Hot and Cold Shower <br>
                         3 to 5 persons
-                    </p>
-
-                    <p>
-                        Sea View 8th Floor <br>
-                        1 Airconditioned Room and Kitchen <br>
-                        Hot and Cold Shower <br>
-                        2 persons
                     </p>',
                 'location' => 'Marina Spatial'
             ]

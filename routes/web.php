@@ -34,6 +34,7 @@ Route::delete('/admin/rooms/{room}', 'Admin\RoomController@destroy');
 Route::get('/admin/rooms/{room}/edit', 'Admin\RoomController@edit');
 
 // bookings
+Route::get('/admin/bookings/exportToCsv', 'Admin\BookingController@exportToCsv');
 Route::get('/admin/bookings', 'Admin\BookingController@index');
 Route::get('/admin/bookings/data', 'Admin\BookingController@getBookings')->name('bookings.data'); // datatable
 Route::post('/admin/bookings', 'Admin\BookingController@store');

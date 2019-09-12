@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #f3efe7;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 6rem;
 }
 
 main {
@@ -67,9 +75,10 @@ nav a:not(.btn-cta):not(.logo):hover {
     padding: 6px 20px !important;
 }
 
-#navbarHome .btn-cta,
+.navbar .btn-cta,
 #book-now-modal .modal-header {
     background-color: #F64C56 !important;
+    cursor: pointer;
 }
 
 /* Home Page */
@@ -144,7 +153,7 @@ nav a:not(.btn-cta):not(.logo):hover {
 
 /* Book */
 #book {
-    background-color: #f3efe7;
+    /* background-color: #f3efe7; */
 }
 
 .btn-book {
@@ -178,7 +187,7 @@ nav a:not(.btn-cta):not(.logo):hover {
 
 /* Select Room */
 #select-room-container {
-    background-color: #f3efe7;
+    /* background-color: #f3efe7; */
 }
 
 .room-list-details div {
@@ -211,7 +220,7 @@ nav a:not(.btn-cta):not(.logo):hover {
 
 /* Checkout room */
 #checkout-container {
-    background-color: #f3efe7;
+    /* background-color: #f3efe7; */
 }
 
 #checkout-container .checkout-heading h3 {
@@ -253,6 +262,10 @@ nav a:not(.btn-cta):not(.logo):hover {
 /* Footer */
 footer {
     background-color: #F64C56 !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 body#book footer {
@@ -294,9 +307,19 @@ body#book footer {
         padding: 0 16px !important;
     }
 
-    .navbar-nav li {
-        width: 100%;
+    .logo {
+        font-size: 1.5em;
+        margin-right: 0;
     }
+
+    .navbar .btn-cta {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    /* .navbar-nav li {
+        width: 100%;
+    } */
 
     #btn-booknow {
         width: 100%;

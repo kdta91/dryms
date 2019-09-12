@@ -27,7 +27,9 @@
         </table>
 
         <div class="text-right">
-            <a href="/admin/bookings">Show all</a>
+            @if($count['bookings'] > 0)
+                <a href="/admin/bookings">Show all</a>
+            @endif
         </div>
     </div>
 </div>

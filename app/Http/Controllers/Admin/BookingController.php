@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\User;
 use App\Booking;
-use App\BookingSchedule;
+// use App\BookingSchedule;
 use App\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -158,5 +158,36 @@ class BookingController extends Controller
         session()->flash('success', 'Booking successfully deleted');
 
         return response()->json($data);
+    }
+
+    public function exportToCsv()
+    {
+        $bookings = Booking::get();
+        $csvExporter = new \Laracsv\Export();
+        $csvExporter->build($bookings,
+            [
+                'first_name',
+                'last_name',
+                'contact_number',
+                'email',
+                'address',
+                'adult',
+                'children',
+                'room_id',
+                'room_type_id',
+                'date_in',
+                'date_out',
+                'special_request',
+                'extText1',
+                'extText2',
+                'extText3',
+                'extNo1',
+                'extNo2',
+                'extNo3',
+                'extDate1',
+                'extDate2',
+                'extDate3',
+                'memo'
+            ])->download('Bookings_' . Carbon::today()->format('m-d-Y') . '.csv');
     }
 }

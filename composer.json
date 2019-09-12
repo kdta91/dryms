@@ -14,6 +14,7 @@
         "laravel/tinker": "^1.0",
         "nesbot/carbon": "^2.19",
         "paypal/rest-api-sdk-php": "^1.14",
+        "usmanhalalit/laracsv": "^2.0",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

@@ -7,6 +7,7 @@
             <h1>Bookings</h1>
         </div>
         <div class="col-md-4 offset-md-4 text-right p-0">
+            <a href="{{action('Admin\BookingController@exportToCsv')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Export to CSV"><i class="fas fa-file-download"></i></a>
             <a href="/admin/bookings/create" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add booking"><i class="fas fa-plus"></i></a>
         </div>
     </div>
@@ -75,12 +76,17 @@
                 { 'data': 'date_in' },
                 { 'data': 'date_out' },
                 {
-                    'data': 'room',
+                    'data': 'room_id',
                     'render' : function (data, type, full) {
                         return (full['room'] && full['room']['number']) ? full['room']['number'] : 'TBA';
                     }
                 },
-                { 'data': 'booking_status.status' },
+                {
+                    'data': 'booking_status_id',
+                    'render' : function (data, type, full) {
+                        return (full['booking_status'] && full['booking_status']['status']) ? full['booking_status']['status'] : 'NA';
+                    }
+                },
                 {
                     'data': 'actions',
                     'render' : function (data, type, full) {

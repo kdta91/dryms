@@ -82,8 +82,8 @@ class BookingController extends Controller
             'total_payment' => $total_payment,
             'special_request' => $data['special_request'],
         ];
-        // $this->sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details);
-        // $this->sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details);
+        $this->sendBookingConfirmationEmailToCustomer($to_name, $to_email, $from_email, $details);
+        $this->sendBookingConfirmationEmailToAdmin($to_name, $to_email, $from_email, $details);
 
         request()->session()->flush();
 
@@ -154,21 +154,17 @@ class BookingController extends Controller
         $children = request()->session()->get('children');
         $guests = $adults + $children;
 
-        $schedules = Booking::whereRaw("('{$date_in}' NOT BETWEEN date_in AND date_out) AND
-                                        ('{$date_out}' NOT BETWEEN date_in AND date_out)")->get();
-        var_dump($date_in->date);
-        var_dump($date_out->date);
-        $room_type_ids = array();
+        $booked_rooms = Booking::whereRaw("('{$date_in}' BETWEEN date_in AND date_out) OR
+                                           ('{$date_out}' BETWEEN date_in AND date_out)")->get();
+        $room_type_ids = array(1, 2, 3);
+        // var_dump($booked_rooms);
 
-        // var_dump($schedules);
-
-        foreach ($schedules as $schedule) {
-            array_push($room_type_ids, $schedule->room_type_id);
+        foreach ($booked_rooms as $booked_room) {
+            array_push($room_type_ids, $booked_room->room_type_id);
         }
-
         // var_dump($room_type_ids);
 
-        $room_types = RoomType::where('capacity', '>=', $guests)->whereIn('id', $room_type_ids)->get()->map(function ($room_type) use ($nights) {
+        $room_types = RoomType::where('capacity', '>=', $guests)->whereNotIn('id', $room_type_ids)->get()->map(function ($room_type) use ($nights) {
             if ($nights >= 8 && $nights <=21) {
                 $room_type->price -= ($room_type->id === 4) ? 200 : 500;
             } else if ($nights >= 22) {
@@ -205,15 +201,25 @@ class BookingController extends Controller
         $children = request()->session()->get('children');
         $guests = $adults + $children;
 
-        $schedules = BookingSchedule::whereNotBetween('date_in', [$date_in, $date_out])->whereNotBetween('date_out', [$date_in, $date_out])->get();
-        $room_ids = [];
+        // $schedules = Booking::whereNotBetween('date_in', [$date_in, $date_out])->whereNotBetween('date_out', [$date_in, $date_out])->get();
+        // $room_ids = [];
 
-        foreach ($schedules as $schedule) {
-            array_push($room_ids, $schedule->room_id);
+        // foreach ($schedules as $schedule) {
+        //     array_push($room_ids, $schedule->room_id);
+        // }
+
+        $booked_rooms = Booking::whereRaw("('{$date_in}' BETWEEN date_in AND date_out) OR
+                                           ('{$date_out}' BETWEEN date_in AND date_out)")->get();
+        $room_ids = [];
+        // var_dump($booked_rooms);
+
+        foreach ($booked_rooms as $booked_room) {
+            array_push($room_ids, $booked_room->room_type_id);
         }
+        // var_dump($room_ids);
 
         $room = Room::with('roomtype')->whereNotIn('id', $room_ids)->where('roomtype_id', $room_type_id)->first();
-
+        // var_dump($room);
         $discount = 0;
 
         if ($nights >= 8 && $nights <=21) {
